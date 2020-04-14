@@ -16,9 +16,9 @@ if(isset($_POST['submit'])){
     $data['contact_user'] = $_POST['contact_user'];
     $data['conctact_email'] = $_POST['contact_email'];
 
-    if($job->create($data)){
-        redirect('index.php', 'Job gelistet', 'success');
-    }else{
+    if($job->create($data)){        
+        redirect('index.php', 'Job listed', 'success');
+    }else{        
         redirect('index.php', 'Etwas ist ausgelaufen', 'error');
     }
 
