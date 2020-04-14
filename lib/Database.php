@@ -55,11 +55,11 @@ class Database{
                 break;
             }
         }
-        $this->stmt->bindValue($param, $value, $type);
+        $this->stmt->bindValue($param, $value, $type);        
     }
 
     public function execute(){
-        return $this->stmt->execute();
+        return $this->stmt->execute();        
     }
 
     public function resultSet(){

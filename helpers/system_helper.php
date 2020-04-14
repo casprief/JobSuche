@@ -15,6 +15,8 @@
             $_SESSION['message'] = $message;
         }
 
+        var_dump($_SESSION['message']);
+
         //Check for Type
         if($message_type != NULL){
             // Set Message Type
@@ -28,7 +30,7 @@
 
 //Display Message
 
-function displayMessage(){
+function displayMessage(){    
 
     if(!empty($_SESSION['message'])){
 
@@ -40,9 +42,9 @@ function displayMessage(){
             $message_type = $_SESSION['message_type'];
             //Create Output
             if($message_type == 'error'){
-                echo '<div class="alert alert-danger"'.$message.'</div>';
+                echo '<div class="alert alert-danger">'.$message.'</div>';
             }else{
-                echo '<div class="alert alert-sucess"'.$message.'</div>';
+                echo '<div class="alert alert-success">'.$message.'</div>';
             }
         }
 
@@ -51,7 +53,7 @@ function displayMessage(){
         unset($_SESSION['message_type']);
       
     }else{
-        echo ' ';
+        echo '';
     }
 }
 
