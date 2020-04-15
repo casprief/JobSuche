@@ -31,8 +31,13 @@ class Database{
     }
 
     public function query($query){
-        
-        $this->stmt = $this->dbh->prepare($query);
+        ChromePhp::log('Query Prep: '.$query); 
+        try {
+            $this->stmt = $this->dbh->prepare($query);
+        }
+        catch(PDOException $e) {            
+            $this->error = $e->getMessage();                        
+        }
     }
 
     public function bind($param, $value, $type=null){
@@ -59,7 +64,14 @@ class Database{
     }
 
     public function execute(){
-        return $this->stmt->execute();        
+        try {
+            return  $this->stmt->execute();
+        }
+        catch(PDOException $e) {            
+            $this->error = $e->getMessage();
+            ChromePhp::log('Error in exec');
+            ChromePhp::log($e);             
+        }                       
     }
 
     public function resultSet(){
@@ -70,6 +82,10 @@ class Database{
     public function single(){
         $this->execute();
         return $this->stmt->fetch(PDO::FETCH_OBJ);
+    }
+
+    public function getError (){
+        return $this->error;
     }
 
 

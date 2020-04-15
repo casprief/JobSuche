@@ -14,14 +14,13 @@ if(isset($_POST['submit'])){
     $data['location'] = $_POST['location'];
     $data['salary'] = $_POST['salary'];
     $data['contact_user'] = $_POST['contact_user'];
-    $data['conctact_email'] = $_POST['contact_email'];
+    $data['contact_email'] = $_POST['contact_email'];
 
     if($job->create($data)){        
         redirect('index.php', 'Job listed', 'success');
     }else{        
         redirect('index.php', 'Etwas ist ausgelaufen', 'error');
     }
-
 }
 
 $template = new Template('templates/job-create.php');
