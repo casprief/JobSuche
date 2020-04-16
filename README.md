@@ -9,5 +9,5 @@ The parameters of the DB are given in the `/config/config.php` file.
 ---
 
 
-Created on: 2019
+Created on: 2020
 Author: fcp
