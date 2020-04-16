@@ -31,7 +31,7 @@ class Database{
     }
 
     public function query($query){
-        ChromePhp::log('Query Prep: '.$query); 
+        
         try {
             $this->stmt = $this->dbh->prepare($query);
         }
@@ -68,9 +68,7 @@ class Database{
             return  $this->stmt->execute();
         }
         catch(PDOException $e) {            
-            $this->error = $e->getMessage();
-            ChromePhp::log('Error in exec');
-            ChromePhp::log($e);             
+            $this->error = $e->getMessage();                         
         }                       
     }
 
